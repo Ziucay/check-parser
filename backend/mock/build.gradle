@@ -5,6 +5,7 @@ plugins {
     id 'application'
     id "org.jetbrains.kotlin.jvm" version "1.6.21"
     id "org.jetbrains.kotlin.plugin.spring" version "1.6.21"
+    id 'idea'
 }
 
 group 'com.cost.accountant'
@@ -20,10 +21,11 @@ application {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.13.+'
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation project(':models')
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'

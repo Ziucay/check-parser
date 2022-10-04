@@ -8,7 +8,6 @@ import org.springframework.security.web.SecurityFilterChain
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
-import java.util.*
 
 
 @Configuration
@@ -29,8 +28,8 @@ class SecurityConfig{
     @Bean
     fun corsConfigurationSource(): CorsConfigurationSource? {
         val configuration = CorsConfiguration()
-        configuration.allowedOrigins = Arrays.asList("http://localhost:63343")
-        configuration.allowedMethods = Arrays.asList("GET", "POST")
+        configuration.allowedOrigins = listOf("http://localhost:63343")
+        configuration.allowedMethods = listOf("GET", "POST")
         val source = UrlBasedCorsConfigurationSource()
         source.registerCorsConfiguration("/**", configuration)
         return source
