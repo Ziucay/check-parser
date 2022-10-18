@@ -12,7 +12,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 
 @Configuration
 @EnableWebSecurity
-class SecurityConfig{
+class SecurityConfig {
 
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
@@ -28,7 +28,7 @@ class SecurityConfig{
     @Bean
     fun corsConfigurationSource(): CorsConfigurationSource? {
         val configuration = CorsConfiguration()
-        configuration.allowedOrigins = listOf("http://localhost:63343")
+        configuration.allowedOrigins = listOf("http://localhost:3333", "http://localhost:5173")
         configuration.allowedMethods = listOf("GET", "POST")
         val source = UrlBasedCorsConfigurationSource()
         source.registerCorsConfiguration("/**", configuration)
