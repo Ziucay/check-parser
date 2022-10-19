@@ -25,10 +25,4 @@
 
 <h1>Welcome to Cost Accountant!</h1>
 
-<ul>
-    {#if data}
-        {#each data as item}
-            <li>{item.name}</li>
-        {/each}
-    {/if}
-</ul>
+
