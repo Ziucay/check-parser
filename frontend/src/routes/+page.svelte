@@ -28,7 +28,7 @@
 {#await data}
     <p>Waiting for a fact...</p>
 {:then data}
-    <p>{data}</p>
+    <p>{@html data}</p>
 {:catch error}
     <p>An error occurred!</p>
 {/await}
