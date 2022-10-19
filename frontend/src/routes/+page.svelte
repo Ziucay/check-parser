@@ -1,7 +1,5 @@
 <script lang="ts" context="module">
-    import type { PageLoad } from './$types';
-
-    export const load: PageLoad = async ({ fetch }) => {
+    export async function load({ fetch }) {
         const response = await fetch('http://192.168.1.107:8080/mock/basic')
         const data = await response.json()
 
@@ -22,7 +20,7 @@
 </script>
 
 <script lang="ts">
-    export let data
+    export let data = []
 </script>
 
 
