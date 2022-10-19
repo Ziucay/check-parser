@@ -1,17 +1,12 @@
 <h1>Welcome to Cost Accountant!</h1>
 <script lang="ts">
-    async function basicButton() {
-        let response = await fetch("http://localhost:8080/mock/basic")
-        let data: string = await (await response.text())
-
-        return `List: ${data}`
-    }
+    import { load } from './+page.server'
 </script>
 
-{#await basicButton()}
-    <p>Waiting for a fact...</p>
+{#await load}
+    <p>Waiting for a data...</p>
 {:then data}
-    <p>{@html data}</p>
+    <p>{@html load}</p>
 {:catch error}
     <p>An error occurred!</p>
 {/await}
