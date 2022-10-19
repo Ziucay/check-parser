@@ -25,4 +25,10 @@
 
 <h1>Welcome to Cost Accountant!</h1>
 
-<p>{data}</p>
+{#await data}
+    <p>Waiting for a data...</p>
+{:then data}
+    <p>{@html data}</p>
+{:catch error}
+    <p>An error occurred!</p>
+{/await}
