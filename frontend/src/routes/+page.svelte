@@ -2,7 +2,7 @@
     export async function load({fetch}) {
         const response = await fetch('https://jsonplaceholder.typicode/posts');
         const data = await response.json();
-
+        console.log(data)
         if (response.ok) {
             return {
                 props: {
