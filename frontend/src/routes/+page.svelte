@@ -1,10 +1,9 @@
 <script lang="ts" context="module">
     export async function load({ fetch }) {
-        const response = await fetch('https://jsonplaceholder.typicode/posts')
-        const data = await response.json()
+        const response = await fetch('https://jsonplaceholder.typicode/posts');
+        const data = await response.json();
 
         if (response.ok) {
-            console.log(data)
             return {
                 props: {
                     data
