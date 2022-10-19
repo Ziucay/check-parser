@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
     export async function load({ fetch }) {
         const response = await fetch("http://192.168.1.107:8080/mock/basic")
-        const data: string = await response.text()
+        const data: string = await response.json()
 
         if (response.ok) {
             console.log(data)
@@ -26,10 +26,8 @@
 
 <h1>Welcome to Cost Accountant!</h1>
 
-{#await data}
-    <p>Waiting for a data...</p>
-{:then data}
-    <p>{data}</p>
-{:catch error}
-    <p>An error occurred!</p>
-{/await}
+<ul>
+    {#each data as item}
+        <li>item</li>
+    {/each}
+</ul>
