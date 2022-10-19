@@ -1,9 +1,10 @@
 <script lang="ts" context="module">
     export async function load({ fetch }) {
         const response = await fetch("http://192.168.1.107:8080/mock/basic")
-        let data: string = 'await response.text()'
+        const data: string = await response.text()
 
         if (response.ok) {
+            console.log(data)
             return {
                 props: {
                     data
