@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
     export async function load({ fetch }) {
-        const response = await fetch('http://192.168.1.107:8080/mock/basic')
+        const response = await fetch('https://jsonplaceholder.typicode/posts')
         const data = await response.json()
 
         if (response.ok) {
@@ -20,7 +20,7 @@
 </script>
 
 <script lang="ts">
-    export let data = []
+    export let data = [];
 </script>
 
 
