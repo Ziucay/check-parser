@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
     export async function load({ fetch }) {
         const response = await fetch("http://localhost:8080/mock/basic")
-        let data: string = await (await response.text())
+        let data: string = await response.text()
 
         if (response.ok) {
             return {
@@ -28,7 +28,7 @@
 {#await data}
     <p>Waiting for a data...</p>
 {:then data}
-    <p>{@html data}</p>
+    <p>{data}</p>
 {:catch error}
     <p>An error occurred!</p>
 {/await}
