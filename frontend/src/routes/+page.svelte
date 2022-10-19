@@ -1,17 +1,15 @@
-<h1>Welcome to Cost Accountant!</h1>
 <script lang="ts">
-    async function basicButton() {
-        let response = await fetch("http://localhost:8080/mock/basic")
-        let data: string = await (await response.text())
+    import type {PageData} from "../../.svelte-kit/types/src/routes/$types";
 
-        return `List: ${data}`
-    }
+    export let data: PageData;
 </script>
 
-{#await basicButton()}
+<h1>Welcome to Cost Accountant!</h1>
+
+{#await data}
     <p>Waiting for a fact...</p>
 {:then data}
-    <p>{@html data}</p>
+    <p>{data.test}</p>
 {:catch error}
     <p>An error occurred!</p>
 {/await}
