@@ -28,6 +28,6 @@
 
 <ul>
     {#each data as item}
-        <li>item</li>
+        <li>{item.name}</li>
     {/each}
 </ul>
