@@ -6,7 +6,7 @@
         if (response.ok) {
             return {
                 props: {
-                    data
+                    data: data
                 }
             }
         }
