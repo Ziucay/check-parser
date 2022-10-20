@@ -1,0 +1,18 @@
+# syntax=docker/dockerfile:1
+
+FROM gradle:7.5.1-jdk18-focal as gradle
+
+COPY --chown=gradle:gradle . /home/gradle/src
+
+WORKDIR /home/gradle/src
+RUN ./gradlew build --no-daemon
+
+FROM gradle:7.5.1-jdk18-alpine
+
+EXPOSE 8080
+
+RUN mkdir /app
+
+COPY --from=gradle /home/gradle/src/mock/build/libs/mock-0.0.1-SNAPSHOT.jar /app/spring-boot-application.jar
+
+ENTRYPOINT ["java", "-jar","/app/spring-boot-application.jar"]
