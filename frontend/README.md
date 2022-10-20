@@ -27,11 +27,28 @@ To create a production version of your app:
 
 ```bash
 npm run build
+
+node build/index.js
 ```
 
-You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## Docker
+
+To build:
+
+```bash
+docker build -t cost-accountant-front .
+```
+
+To run:
+
+```bash
+docker run -d -p 3000:3000 --rm --name cost-accountant-front cost-accountant-front
+```
+
+
+
 
 ## Troubleshooting
 
