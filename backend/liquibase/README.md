@@ -1,3 +1,6 @@
-# Prerequisites
+To update the database, type 
 
-- liquibase
+```bash
+liquibase update --defaultsFile=<path to properties file>
+```
+
