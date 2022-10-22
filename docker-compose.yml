@@ -19,3 +19,11 @@ services:
       - "3000:3000"
     networks:
       - apps
+
+  db:
+    image: postgres:15.0
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    networks:
+      - apps
