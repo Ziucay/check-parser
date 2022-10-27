@@ -2,6 +2,7 @@
     import type {PageData} from "../../.svelte-kit/types/src/routes/$types";
 
     export let data: PageData;
+
 </script>
 
 <h1>Welcome to Cost Accountant!</h1>
@@ -13,5 +14,3 @@
 {:catch error}
     <p>An error occurred!</p>
 {/await}
-
-<div id="reader" width="600px"></div>
