@@ -13,3 +13,5 @@
 {:catch error}
     <p>An error occurred!</p>
 {/await}
+
+<div id="reader" width="600px"></div>
