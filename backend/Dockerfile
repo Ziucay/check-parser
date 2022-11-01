@@ -10,9 +10,13 @@ RUN ./gradlew build --no-daemon
 FROM gradle:7.5.1-jdk18-alpine
 
 EXPOSE 8080
+EXPOSE 8090
 
 RUN mkdir /app
 
-COPY --from=gradle /home/gradle/src/mock/build/libs/mock-0.0.1-SNAPSHOT.jar /app/spring-boot-application.jar
+COPY --from=gradle /home/gradle/src/mock/build/libs/mock-0.0.1-SNAPSHOT.jar /app/mock.jar
+COPY --from=gradle /home/gradle/src/authorization/build/libs/authorization-0.0.1-SNAPSHOT.jar /app/auth.jar
 
-ENTRYPOINT ["java", "-jar","/app/spring-boot-application.jar"]
+
+ENTRYPOINT ["java", "-jar","/app/mock.jar"]
+ENTRYPOINT ["java", "-jar","/app/auth.jar"]
