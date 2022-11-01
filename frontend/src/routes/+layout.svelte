@@ -7,6 +7,7 @@
 </svelte:head>
 
 <nav>
+    <a href="/">Home</a>
     {#if !$page.data.user}
         <a href="/login">Login</a>
         <a href="/register">Register</a>
