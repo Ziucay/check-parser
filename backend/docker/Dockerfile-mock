@@ -13,6 +13,6 @@ EXPOSE 8080
 
 RUN mkdir /app
 
-COPY --from=gradle /home/gradle/src/mock/build/libs/mock-0.0.1-SNAPSHOT.jar /app/spring-boot-application.jar
+COPY --from=gradle /home/gradle/src/mock/build/libs/mock-0.0.1-SNAPSHOT.jar /app/mock.jar
 
-ENTRYPOINT ["java", "-jar","/app/spring-boot-application.jar"]
+ENTRYPOINT ["java", "-jar","/app/mock.jar"]

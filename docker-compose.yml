@@ -4,8 +4,20 @@ networks:
   apps:
 
 services:
-  back:
-    build: ./backend/
+  auth:
+    build:
+      context: ./backend
+      dockerfile: ./docker/Dockerfile-auth
+    restart: always
+    ports:
+      - "8090:8090"
+    networks:
+      - apps
+
+  mock:
+    build:
+      context: ./backend
+      dockerfile: ./docker/Dockerfile-mock
     restart: always
     ports:
       - "8080:8080"
