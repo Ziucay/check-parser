@@ -6,8 +6,8 @@ networks:
 services:
   auth:
     build:
-      context: ./backend/docker
-      dockerfile: Dockerfile-auth
+      context: ./backend
+      dockerfile: ./docker/Dockerfile-auth
     restart: always
     ports:
       - "8090:8090"
@@ -16,8 +16,8 @@ services:
 
   mock:
     build:
-      context: ./backend/docker
-      dockerfile: Dockerfile-mock
+      context: ./backend
+      dockerfile: ./docker/Dockerfile-mock
     restart: always
     ports:
       - "8080:8080"
