@@ -45,7 +45,6 @@ class LoginController(val passwordEncoder: PasswordEncoder) {
     @PostMapping("/authenticate")
     @ResponseBody
     fun authenticate(@RequestBody token: String): LoginInfo {
-        logger.info(authToken)
         if (token == authToken)
             return LoginInfo(
                 username = "user",

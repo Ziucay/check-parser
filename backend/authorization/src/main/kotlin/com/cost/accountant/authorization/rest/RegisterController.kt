@@ -16,7 +16,6 @@ class RegisterController {
     @PostMapping("/register")
     fun register(@RequestBody body: RegistrationInfo): String
     {
-        logger.info("Register!")
         if (body.username != "user")
         {
             return "ok"

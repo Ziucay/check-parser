@@ -44,7 +44,6 @@ const register: Action = async ({request}) => {
     const result = await res.text()
 
     if (result === 'ok') {
-        console.log('ok')
         throw redirect(303, '/login')
     } else
         return invalid(400, {invalid: true})
