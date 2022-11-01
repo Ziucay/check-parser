@@ -12,7 +12,7 @@ export const handle: Handle = async ({ event, resolve }) => {
     const authenticationRequest = await fetch('http://auth:8090/authenticate', {
         method: 'POST',
         headers: {
-            'Accept': 'text/plain',
+            'Accept': 'application/json',
             'Content-Type': 'text/plain'
         },
         body: session
