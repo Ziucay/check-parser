@@ -20,7 +20,7 @@ const login: Action = async ({cookies, request}) => {
         return invalid(400, {invalid: true})
     }
 
-    const retrievedPass = await fetch('http://localhost:8090/login', {
+    const retrievedPass = await fetch('http://back:8090/login', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -46,7 +46,7 @@ const login: Action = async ({cookies, request}) => {
 
     const authToken = crypto.randomUUID()
 
-    const updateToken = await fetch('http://localhost:8090/updateToken', {
+    const updateToken = await fetch('http://back:8090/updateToken', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
