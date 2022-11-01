@@ -49,8 +49,8 @@ const login: Action = async ({cookies, request}) => {
     const updateToken = await fetch('http://back:8090/updateToken', {
         method: 'POST',
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Accept': 'text/plain',
+            'Content-Type': 'text/plain'
         },
         body: authToken
     })
