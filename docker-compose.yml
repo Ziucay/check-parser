@@ -13,6 +13,8 @@ services:
       - "8090:8090"
     networks:
       - apps
+    depends_on:
+      - db
 
   mock:
     build:
@@ -39,8 +41,6 @@ services:
       POSTGRES_PASSWORD: example
     ports:
       - "5432:5432"
-    depends_on:
-      - auth
     networks:
       - apps
 
@@ -51,5 +51,3 @@ services:
       - 8081:8080
     networks:
       - apps
-    depends_on:
-      - db
