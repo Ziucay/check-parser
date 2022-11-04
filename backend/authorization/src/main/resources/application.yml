@@ -14,4 +14,4 @@ spring:
         temp:
           use_jdbc_metadata_defaults: false
   liquibase:
-    change-log: /liquibase/changelog-master.yml
+    change-log: ../liquibase/changelog-master.yml
