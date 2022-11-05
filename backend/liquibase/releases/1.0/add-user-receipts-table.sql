@@ -7,9 +7,9 @@ CREATE TABLE application.user_receipts
     receipt_id integer NOT NULL,
     CONSTRAINT fk_user
         FOREIGN KEY (user_id)
-            REFERENCES user (id),
+            REFERENCES application.user (id),
     CONSTRAINT fk_receipt
         FOREIGN KEY (receipt_id)
-            REFERENCES receipt (id)
+            REFERENCES application.receipt (id)
 );
 --rollback DROP TABLE application.user_receipts;
