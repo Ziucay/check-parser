@@ -56,7 +56,7 @@ services:
     networks:
       - apps
     volumes:
-      - ./backend/liquibase/:/liquibase/changelog/
+      - ./backend/liquibase:/liquibase/changelog/
     command: --defaults-file=/liquibase/changelog/liquibase.properties update
     depends_on:
       - db
