@@ -59,8 +59,6 @@ services:
       - apps
     volumes:
       - ./backend/liquibase:/liquibase/changelog/
-    environment:
-      LIQUIBASE_DEFAULTS_FILE: ./liquibase.docker.properties
-    command: update
+    command: --defaults-file=./liquibase.docker.properties update
     depends_on:
       - db
