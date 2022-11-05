@@ -1,7 +1,7 @@
 databaseChangeLog:
   - include:
-      file: ./add-user-table.sql
+      relativeToChangelogFile: ./add-user-table.sql
   - include:
-      file: ./add-receipt-table.sql
+      relativeToChangelogFile: ./add-receipt-table.sql
   - include:
-      file: ./add-user-receipts-table.sql
+      relativeToChangelogFile: ./add-user-receipts-table.sql

@@ -1,5 +1,5 @@
 databaseChangeLog:
   - include:
-      file: ./init/init.sql
+      relativeToChangelogFile: ./init/init.sql
   - include:
-      file: ./releases/1.0/1.0.yml
+      relativeToChangelogFile: ./releases/1.0/1.0.yml
