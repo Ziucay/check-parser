@@ -53,7 +53,7 @@ services:
       - apps
 
   liquibase:
-    image: liquibase/liquibase
+    image: liquibase/liquibase:4.17
     restart: always
     networks:
       - apps
