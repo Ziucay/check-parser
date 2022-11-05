@@ -54,7 +54,7 @@ services:
 
   liquibase:
     image: liquibase/liquibase:4.17
-    restart: always
+    restart: on-failure
     networks:
       - apps
     volumes:
