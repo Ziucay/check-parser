@@ -25,7 +25,9 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+    implementation 'org.postgresql:postgresql:42.1.4'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.5'
     implementation project(':models')
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
