@@ -59,6 +59,6 @@ services:
       - apps
     volumes:
       - ./backend/liquibase:/liquibase/changelog/
-    command: -defaultsFile=liquibase.properties update
+    command: --changeLogFile=./changelog-master.yml --username=postgres --password=example --url=jdbc:postgresql://db:5432/postgres update
     depends_on:
       - db
