@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
-      file: ./init/init.sql
+      file:
+        - ./init/init.sql
+        - ./releases/1.0/1.0.yml
