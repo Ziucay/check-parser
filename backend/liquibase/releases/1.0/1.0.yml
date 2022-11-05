@@ -1,7 +1,10 @@
 databaseChangeLog:
   - include:
-      relativeToChangelogFile: ./add-user-table.sql
+      file: ./add-user-table.sql
+      relativeToChangelogFile: true
   - include:
-      relativeToChangelogFile: ./add-receipt-table.sql
+      file: ./add-receipt-table.sql
+      relativeToChangelogFile: true
   - include:
-      relativeToChangelogFile: ./add-user-receipts-table.sql
+      file: ./add-user-receipts-table.sql
+      relativeToChangelogFile: true
