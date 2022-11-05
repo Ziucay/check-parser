@@ -59,6 +59,6 @@ services:
       - apps
     volumes:
       - ./backend/liquibase:/liquibase/changelog/
-    command: --defaults-file=liquibase.docker.properties --changeLogFile=changelog-master.yml update
+    command: --defaultsFile=liquibase.docker.properties update
     depends_on:
       - db
