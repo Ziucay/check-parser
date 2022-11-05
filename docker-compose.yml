@@ -13,8 +13,6 @@ services:
       - "8090:8090"
     networks:
       - apps
-    depends_on:
-      - db
 
   mock:
     build:
@@ -51,3 +49,14 @@ services:
       - 8081:8080
     networks:
       - apps
+
+  liquibase:
+    image: liquibase/liquibase
+    restart: always
+    networks:
+      - apps
+    volumes:
+      - ./backend/liquibase/:/liquibase/changelog/
+    command: --defaults-file=/liquibase/changelog/liquibase.properties update
+    depends_on:
+      - db

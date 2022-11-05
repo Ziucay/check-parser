@@ -26,8 +26,6 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
-    implementation("org.liquibase:liquibase-core")
-    runtimeOnly("org.postgresql:postgresql")
     implementation project(':models')
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
