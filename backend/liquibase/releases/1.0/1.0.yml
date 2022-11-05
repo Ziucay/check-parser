@@ -1,6 +1,7 @@
 databaseChangeLog:
-  include:
-    file:
-      - ./add-user-table.sql
-      - ./add-receipt-table.sql
-      - ./add-user-receipts-table.sql
+  - include:
+      file: ./add-user-table.sql
+  - include:
+      file: ./add-receipt-table.sql
+  - include:
+      file: ./add-user-receipts-table.sql
