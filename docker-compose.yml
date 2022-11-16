@@ -9,6 +9,8 @@ services:
       context: ./backend
       dockerfile: ./docker/Dockerfile-auth
     restart: always
+    profiles:
+      - dev
     ports:
       - "8090:8090"
     networks:
@@ -21,6 +23,8 @@ services:
       context: ./backend
       dockerfile: ./docker/Dockerfile-mock
     restart: always
+    profiles:
+      - dev
     ports:
       - "8080:8080"
     networks:
@@ -29,6 +33,8 @@ services:
   front:
     build: ./frontend/
     restart: always
+    profiles:
+      - dev
     ports:
       - "3000:3000"
     networks:
@@ -39,6 +45,7 @@ services:
     restart: always
     profiles:
       - db-only
+      - dev
     environment:
       POSTGRES_PASSWORD: example
     ports:
@@ -51,6 +58,7 @@ services:
     restart: always
     profiles:
       - db-only
+      - dev
     ports:
       - 8081:8080
     networks:
@@ -61,6 +69,7 @@ services:
     restart: on-failure
     profiles:
       - db-only
+      - dev
     networks:
       - apps
     volumes:
