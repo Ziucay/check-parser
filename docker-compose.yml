@@ -37,6 +37,8 @@ services:
   db:
     image: postgres:15.0
     restart: always
+    profiles:
+      - db-only
     environment:
       POSTGRES_PASSWORD: example
     ports:
@@ -47,6 +49,8 @@ services:
   adminer:
     image: adminer
     restart: always
+    profiles:
+      - db-only
     ports:
       - 8081:8080
     networks:
@@ -55,6 +59,8 @@ services:
   liquibase:
     image: liquibase/liquibase:4.17
     restart: on-failure
+    profiles:
+      - db-only
     networks:
       - apps
     volumes:
