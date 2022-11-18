@@ -9,7 +9,33 @@
 {#await data}
     <p>Waiting for a fact...</p>
 {:then data}
-    <p>{data.test}</p>
+    <p1>{data.test}</p1>
 {:catch error}
-    <p>An error occurred!</p>
+    <p2>An error occurred!</p2>
 {/await}
+
+<style>
+    p{
+        color: black;
+    }
+
+    p1{
+        font-family: "My Custom Font";
+    }
+
+    p2{
+		animation:error 0.5s ease;
+        position:relative;
+        font-family: "My Font Family 1";
+    }
+
+    @keyframes error{
+        0%{left:0px;}
+        25%{left:20px;}
+        50%{left:0px}
+        70%{left:15px}
+        100%{left:0px}
+    }
+
+
+</style>
