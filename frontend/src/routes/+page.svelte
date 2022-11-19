@@ -6,14 +6,6 @@
 
 <h1>Welcome to Cost Accountant!</h1>
 
-{#await data}
-    <p>Waiting for a fact...</p>
-{:then data}
-    <p1>{data.test}</p1>
-{:catch error}
-    <p2>An error occurred!</p2>
-{/await}
-
 <style>
     p{
         color: black;
