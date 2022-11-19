@@ -17,9 +17,9 @@
 <table>
     {#each receipts as {_id, createdAt, ticket}, i}
         <tr>
-            <th>_id</th>
-            <th>createdAt</th>
-            <th>ticket.document.receipt.totalSum</th>
+            <th>{_id}</th>
+            <th>{createdAt}</th>
+            <th>{ticket.document.receipt.totalSum}</th>
         </tr>
     {/each}
 </table>
