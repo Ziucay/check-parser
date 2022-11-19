@@ -40,7 +40,7 @@
         {/if}
     
         {#if $page.data.user}
-            <a href="/admin">Admin</a>
+            <a href="/data">List receipts</a>
     
             <form action="/logout" method="POST">
                 <button type="submit">Log out</button>
