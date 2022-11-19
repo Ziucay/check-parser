@@ -22,7 +22,7 @@
     </tr>
     {#each receipts as {_id, createdAt, ticket}, i}
         <tr>
-            <td>{_id}</td>
+            <td><a href="/data/receipt/{i + 1}">{_id}</a></td>
             <td>{createdAt}</td>
             <td>{ticket.document.receipt.totalSum / 100}</td>
         </tr>
@@ -33,8 +33,9 @@
     table, th{
         border: 1px solid;
         border-collapse: collapse;
+        font-size: 18px;
     }
-    
+
     th{
         background: #1d49aa;
     }
