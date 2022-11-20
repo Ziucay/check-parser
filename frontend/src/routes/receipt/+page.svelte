@@ -1,6 +1,7 @@
 <script lang="ts">
     import {page} from '$app/stores'
     import type {PageData} from "../../.svelte-kit/types/src/routes/$types";
+    import { Telegram } from 'svelte-share-buttons-component';
 
     export let data: PageData;
 
@@ -81,3 +82,4 @@
 </div>
 
 <p>Sum: {owedSum / 100}</p>
+<Telegram class="share-button" text=Hi, you owe me {owedSum / 100} rubles! />
