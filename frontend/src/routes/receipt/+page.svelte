@@ -56,9 +56,9 @@
 <div>
     {#each items as items, i}
         <div style="display: inline-block">
-            <button on:click={tryChangeBuyer({i},{1})}>Bought by me</button>
+            <button on:click={tryChangeBuyer({i},1)}>Bought by me</button>
             <div>{items.name} | {items.quantity} | {items.sum}</div>
-            <button on:click={tryChangeBuyer({i},{1})}>Bought by other</button>
+            <button on:click={tryChangeBuyer({i},2)}>Bought by other</button>
         </div>
     {/each}
 </div>
