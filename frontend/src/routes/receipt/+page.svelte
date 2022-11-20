@@ -47,6 +47,7 @@
                 buyers[id] = Buyer.Common
             }
         }
+        console.log(buyers)
         calculate()
     }
 
