@@ -19,7 +19,7 @@
     let items = receipt.ticket.document.receipt.items
     let buyers: Buyer[] = []
     let owedSum = 0
-    let defaultColor = "white"
+    let defaultColor = "transparent"
     let leftColor = "blue"
     let rightColor = "green"
     items.forEach(() => buyers.push(Buyer.Common))
@@ -69,12 +69,12 @@
         <div style="display: flex; flex-direction: row; padding: 10px">
             <button type="submit" style="border: 0; background: transparent"
                     on:click={() => tryChangeBuyer(i,Direction.Left)}>
-                <img src="/images/arrow-left-short.svg" width="90" height="90" alt="submit" />
+                <img src="/images/arrow-left-short.svg" width="50" height="50" alt="left" />
             </button>
             <div id="receipt-entry-{i}">{items.name} | {items.quantity} | {items.sum / 100}</div>
             <button type="submit" style="border: 0; background: transparent"
                     on:click={() => tryChangeBuyer(i,Direction.Right)}>
-                <img src="/images/arrow-right-short.svg" width="90" height="90" alt="submit" />
+                <img src="/images/arrow-right-short.svg" width="50" height="50" alt="right" />
             </button>
         </div>
     {/each}
