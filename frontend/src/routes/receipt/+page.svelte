@@ -37,7 +37,7 @@
         }
     }
 
-    function calculate(): number {
+    function calculate(){
         let sum = 0
         for (let i = 0; i < items.length; i++) {
             if (buyers[i] === Buyer.Common) {
@@ -46,7 +46,7 @@
                 sum += items[i].sum
             }
         }
-        return sum
+        owedSum = sum
     }
 
     calculate()
@@ -62,3 +62,5 @@
         </div>
     {/each}
 </div>
+
+<p>Sum: {owedSum}</p>
