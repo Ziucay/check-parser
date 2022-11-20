@@ -19,6 +19,9 @@
     let items = receipt.ticket.document.receipt.items
     let buyers: Buyer[] = []
     let owedSum = 0
+    let defaultColor = "white"
+    let leftColor = "blue"
+    let rightColor = "green"
     items.forEach(() => buyers.push(Buyer.Common))
 
     function calculate(){
@@ -34,20 +37,24 @@
     }
 
     function tryChangeBuyer(id: number, direction: Direction) {
+        let entry = document.getElementById(`receipt-entry-${id}`)
         if (direction === Direction.Left) {
             if (buyers[id] === Buyer.Common) {
                 buyers[id] = Buyer.Left
+                entry.style.backgroundColor = leftColor
             } else if (buyers[id] === Buyer.Right) {
                 buyers[id] = Buyer.Common
+                entry.style.backgroundColor = defaultColor
             }
         } else {
             if (buyers[id] === Buyer.Common) {
                 buyers[id] = Buyer.Right
+                entry.style.backgroundColor = rightColor
             } else if (buyers[id] === Buyer.Left) {
                 buyers[id] = Buyer.Common
+                entry.style.backgroundColor = defaultColor
             }
         }
-        console.log(buyers)
         calculate()
     }
 
@@ -59,7 +66,7 @@
     {#each items as items, i}
         <div style="display: flex; flex-direction: row">
             <button on:click={() => tryChangeBuyer(i,Direction.Left)}>Bought by me</button>
-            <div>{items.name} | {items.quantity} | {items.sum / 100}</div>
+            <div id="receipt-entry-{i}">{items.name} | {items.quantity} | {items.sum / 100}</div>
             <button on:click={() => tryChangeBuyer(i,Direction.Right)}>Bought by other</button>
         </div>
     {/each}
