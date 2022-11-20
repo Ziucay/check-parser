@@ -37,6 +37,11 @@
         }
     }
 
+    function changeBuyer(id: number, num: number)
+    {
+        changeBuyer(id, num === 1 ? Direction.Left : Direction.Right)
+    }
+
     function calculate(){
         let sum = 0
         for (let i = 0; i < items.length; i++) {
@@ -55,12 +60,12 @@
 
 <div>
     {#each items as items, i}
-        <div style="display: flex; flex-direction: column">
-            <button on:click={tryChangeBuyer({i},1)}>Bought by me</button>
-            <div>{items.name} | {items.quantity} | {items.sum}</div>
-            <button on:click={tryChangeBuyer({i},2)}>Bought by other</button>
+        <div style="display: flex; flex-direction: row">
+            <button on:click={changeBuyer({i},1)}>Bought by me</button>
+            <div>{items.name} | {items.quantity} | {items.sum / 100}</div>
+            <button on:click={changeBuyer({i},2)}>Bought by other</button>
         </div>
     {/each}
 </div>
 
-<p>Sum: {owedSum}</p>
+<p>Sum: {owedSum / 100}</p>
