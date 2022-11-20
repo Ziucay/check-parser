@@ -71,7 +71,7 @@
                     on:click={() => tryChangeBuyer(i,Direction.Left)}>
                 <img src="/images/arrow-left-short.svg" width="50" height="50" alt="left" />
             </button>
-            <div style="border-radius: 10px" id="receipt-entry-{i}">{items.name} | {items.quantity} | {items.sum / 100}</div>
+            <div style="border-radius: 10px" id="receipt-entry-{i}"> {items.name} | {items.quantity} | {items.sum / 100} </div>
             <button type="submit" style="border: 0; background: transparent;"
                     on:click={() => tryChangeBuyer(i,Direction.Right)}>
                 <img src="/images/arrow-right-short.svg" width="50" height="50" alt="right" />
