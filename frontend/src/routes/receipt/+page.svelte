@@ -82,4 +82,4 @@
 </div>
 
 <p>Sum: {owedSum / 100}</p>
-<Telegram class="share-button" text=Hi, you owe me {owedSum / 100} rubles! />
+<Telegram class="share-button" text="Hi, you owe me {owedSum / 100} rubles!" />
