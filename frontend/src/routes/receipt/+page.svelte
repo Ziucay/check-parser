@@ -24,7 +24,7 @@
     let rightColor = "green"
     items.forEach(() => buyers.push(Buyer.Common))
 
-    function calculate(){
+    function calculate() {
         let sum = 0
         for (let i = 0; i < items.length; i++) {
             if (buyers[i] === Buyer.Common) {
@@ -66,10 +66,16 @@
 
 <div>
     {#each items as items, i}
-        <div style="display: flex; flex-direction: row">
-            <button on:click={() => tryChangeBuyer(i,Direction.Left)}>Bought by me</button>
+        <div style="display: flex; flex-direction: row; padding: 10px">
+            <button type="submit" style="border: 0; background: transparent"
+                    on:click={() => tryChangeBuyer(i,Direction.Left)}>
+                <img src="/images/arrow-left-short.svg" width="90" height="90" alt="submit" />
+            </button>
             <div id="receipt-entry-{i}">{items.name} | {items.quantity} | {items.sum / 100}</div>
-            <button on:click={() => tryChangeBuyer(i,Direction.Right)}>Bought by other</button>
+            <button type="submit" style="border: 0; background: transparent"
+                    on:click={() => tryChangeBuyer(i,Direction.Right)}>
+                <img src="/images/arrow-right-short.svg" width="90" height="90" alt="submit" />
+            </button>
         </div>
     {/each}
 </div>
