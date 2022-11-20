@@ -21,6 +21,18 @@
     let owedSum = 0
     items.forEach(() => buyers.push(Buyer.Common))
 
+    function calculate(){
+        let sum = 0
+        for (let i = 0; i < items.length; i++) {
+            if (buyers[i] === Buyer.Common) {
+                sum += (items[i].sum) / 2
+            } else if (buyers[i] === Buyer.Right) {
+                sum += items[i].sum
+            }
+        }
+        owedSum = sum
+    }
+
     function tryChangeBuyer(id: number, direction: Direction) {
         if (direction === Direction.Left) {
             if (buyers[id] === Buyer.Common) {
@@ -35,23 +47,12 @@
                 buyers[id] = Buyer.Common
             }
         }
+        calculate()
     }
 
     function changeBuyer(id: number, num: number)
     {
         tryChangeBuyer(id, num === 1 ? Direction.Left : Direction.Right)
-    }
-
-    function calculate(){
-        let sum = 0
-        for (let i = 0; i < items.length; i++) {
-            if (buyers[i] === Buyer.Common) {
-                sum += (items[i].sum) / 2
-            } else if (buyers[i] === Buyer.Right) {
-                sum += items[i].sum
-            }
-        }
-        owedSum = sum
     }
 
     calculate()
