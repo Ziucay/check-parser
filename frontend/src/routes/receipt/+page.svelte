@@ -20,8 +20,8 @@
     let buyers: Buyer[] = []
     let owedSum = 0
     let defaultColor = "transparent"
-    let leftColor = "blue"
-    let rightColor = "green"
+    let leftColor = "#5BC0EB"
+    let rightColor = "#90A955"
     items.forEach(() => buyers.push(Buyer.Common))
 
     function calculate() {
