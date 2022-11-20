@@ -62,6 +62,8 @@
 
 </script>
 
+<p>If entry marked in blue, then it bought fully by you. If green, by other. Otherwise, white</p>
+
 <div>
     {#each items as items, i}
         <div style="display: flex; flex-direction: row">
