@@ -39,7 +39,7 @@
 
     function changeBuyer(id: number, num: number)
     {
-        changeBuyer(id, num === 1 ? Direction.Left : Direction.Right)
+        tryChangeBuyer(id, num === 1 ? Direction.Left : Direction.Right)
     }
 
     function calculate(){
