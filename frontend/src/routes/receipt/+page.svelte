@@ -51,11 +51,6 @@
         calculate()
     }
 
-    function changeBuyer(id: number, num: number)
-    {
-        tryChangeBuyer(id, num === 1 ? Direction.Left : Direction.Right)
-    }
-
     calculate()
 
 </script>
@@ -63,9 +58,9 @@
 <div>
     {#each items as items, i}
         <div style="display: flex; flex-direction: row">
-            <button on:click={changeBuyer({i},1)}>Bought by me</button>
+            <button on:click={() => tryChangeBuyer(i,Direction.Left)}>Bought by me</button>
             <div>{items.name} | {items.quantity} | {items.sum / 100}</div>
-            <button on:click={changeBuyer({i},2)}>Bought by other</button>
+            <button on:click={() => tryChangeBuyer(i,Direction.Right)}>Bought by other</button>
         </div>
     {/each}
 </div>
