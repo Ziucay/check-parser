@@ -4,12 +4,17 @@
     export let data: PageData;
 
     let fileInput;
+
+    function openFileInNewPage()
+    {
+        console.log(fileInput.json())
+    }
 </script>
 
 <h1>Welcome to Cost Accountant!</h1>
 
 <div class="container">
-    <input class="hidden" id="file-to-upload" type="file" accept=".json" bind:this={fileInput} />
+    <input class="hidden" id="file-to-upload" type="file" accept=".json" bind:this={fileInput} on:change={() => openFileInNewPage()}/>
     <button class="upload-btn" on:click={ () => fileInput.click() }>Upload </button>
 </div>
 
