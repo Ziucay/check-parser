@@ -29,6 +29,16 @@
         color: rgb(10, 5, 103);
     }
 
+    button {
+        width: 128px;
+        height: 32px;
+        background-color: #1d49aa;
+        font-family: sans-serif;
+        color: white;
+        font-weight: bold;
+        border: none;
+    }
+
 </style>
 
 <body>
