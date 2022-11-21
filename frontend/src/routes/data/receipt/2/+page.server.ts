@@ -7,7 +7,7 @@ export const load: PageServerLoad = async ({ locals }) => {
         throw redirect(302, '/')
     }
 
-    const response = await fetch('http://mock:8080/mock/receipt/2');
+    const response = await fetch('http://mock:8080/mock/receipt?id=2');
     const list = await response.json()
 
     return {
