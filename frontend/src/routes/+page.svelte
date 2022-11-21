@@ -2,9 +2,16 @@
     import type {PageData} from "../../.svelte-kit/types/src/routes/$types";
 
     export let data: PageData;
+
+    let fileInput;
 </script>
 
 <h1>Welcome to Cost Accountant!</h1>
+
+<div class="container">
+    <input class="hidden" id="file-to-upload" type="file" accept=".json" bind:this={fileInput} />
+    <button class="upload-btn" on:click={ () => fileInput.click() }>Upload </button>
+</div>
 
 <style>
     p{
@@ -19,6 +26,20 @@
 		animation:error 0.5s ease;
         position:relative;
         font-family: "My Font Family 1";
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .upload-btn {
+        width: 128px;
+        height: 32px;
+        background-color: #1d49aa;
+        font-family: sans-serif;
+        color: white;
+        font-weight: bold;
+        border: none;
     }
 
     @keyframes error{
