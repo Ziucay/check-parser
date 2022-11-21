@@ -12,10 +12,9 @@
         const reader = new FileReader();
 
         reader.addEventListener("load", () => {
-            if (typeof reader.result === "string") {
-                localStorage.setItem("json", reader.result)
-                redirect(302, '/distribution')
-            }
+
+            localStorage.setItem("json", this.result)
+            redirect(302, '/distribution')
         }, false);
 
         reader.readAsText(fileInput)
