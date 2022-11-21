@@ -1,13 +1,27 @@
 <script lang="ts">
     import type {PageData} from "../../.svelte-kit/types/src/routes/$types";
+    import { writable } from "svelte/store";
+    import {redirect} from "@sveltejs/kit";
+
 
     export let data: PageData;
+
+    const store = writable(localStorage.getItem("json") || "");
 
     let fileInput;
 
     function openFileInNewPage()
     {
-        console.log(fileInput.json())
+        const reader = new FileReader();
+
+        reader.addEventListener("load", () => {
+            if (typeof reader.result === "string") {
+                localStorage.setItem("json", reader.result)
+                redirect(302, '/distribution')
+            }
+        }, false);
+
+        reader.readAsText(fileInput)
     }
 </script>
 
