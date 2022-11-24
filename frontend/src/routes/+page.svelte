@@ -6,40 +6,41 @@
     export let data: PageData;
 
     let fileInput;
+    let uploadJson;
 
-    function openFileInNewPage()
-    {
+    function openFileInNewPage() {
         const reader = new FileReader();
-
-        reader.addEventListener("load", () => {
-
-            localStorage.setItem("json", this.result)
-            redirect(302, '/distribution')
-        }, false);
-
         reader.readAsText(fileInput)
+        reader.onload = e => {
+            uploadJson = e.target.result;
+        }
     }
 </script>
 
 <h1>Welcome to Cost Accountant!</h1>
 
 <div class="container">
-    <input class="hidden" id="file-to-upload" type="file" accept=".json" bind:this={fileInput} on:change={() => openFileInNewPage()}/>
-    <button class="upload-btn" on:click={ () => fileInput.click() }>Upload </button>
+    <input class="hidden" id="file-to-upload" type="file" accept=".json" bind:this={fileInput}
+           on:change={() => openFileInNewPage()}/>
+    <button class="upload-btn" on:click={ () => fileInput.click() }>Upload</button>
 </div>
 
+{#if uploadJson != null}
+    <p>{uploadJson}</p>
+{/if}
+
 <style>
-    p{
+    p {
         color: black;
     }
 
-    p1{
+    p1 {
         font-family: "My Custom Font";
     }
 
-    p2{
-		animation:error 0.5s ease;
-        position:relative;
+    p2 {
+        animation: error 0.5s ease;
+        position: relative;
         font-family: "My Font Family 1";
     }
 
@@ -57,12 +58,22 @@
         border: none;
     }
 
-    @keyframes error{
-        0%{left:0px;}
-        25%{left:20px;}
-        50%{left:0px}
-        70%{left:15px}
-        100%{left:0px}
+    @keyframes error {
+        0% {
+            left: 0px;
+        }
+        25% {
+            left: 20px;
+        }
+        50% {
+            left: 0px
+        }
+        70% {
+            left: 15px
+        }
+        100% {
+            left: 0px
+        }
     }
 
 
