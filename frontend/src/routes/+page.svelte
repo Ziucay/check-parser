@@ -9,6 +9,7 @@
     let uploadJson;
 
     function openFileInNewPage() {
+        console.log(fileInput)
         const reader = new FileReader();
         reader.readAsText(fileInput)
         reader.onload = e => {
