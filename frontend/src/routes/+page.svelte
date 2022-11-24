@@ -38,7 +38,7 @@
 
 {#if fileReaded}
     <p>{fileReaded}</p>
-    <ReceiptCalculator receipt={fileReaded} />
+    
 {/if}
 
 <style>
