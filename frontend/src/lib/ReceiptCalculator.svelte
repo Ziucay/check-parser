@@ -13,7 +13,7 @@
     }
 
     //Accepts array of receipts
-    export let receipt;
+    export let receipt: object[];
 
     //Get items from each list
     let receiptItemsArray: object[]
