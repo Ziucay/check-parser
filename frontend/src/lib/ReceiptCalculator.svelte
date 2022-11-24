@@ -18,7 +18,7 @@
     //Get items from each list
     let receiptItemsArray: object[] = []
     receipt.forEach((r) => {
-        receiptItemsArray.push(r.ticket.documet.receipt.items)
+        receiptItemsArray.push(r.ticket.document.receipt.items)
     });
 
     console.log(receiptItemsArray)
