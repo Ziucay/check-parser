@@ -6,12 +6,12 @@
     export let data: PageData;
 
     let fileInput;
+    let files;
     let uploadJson;
 
-    function openFileInNewPage() {
-        console.log(fileInput)
+    function openFileInNewPage(jsonFile) {
         const reader = new FileReader();
-        reader.readAsText(fileInput)
+        reader.readAsText(jsonFile)
         reader.onload = e => {
             uploadJson = e.target.result;
         }
@@ -22,7 +22,7 @@
 
 <div class="container">
     <input class="hidden" id="file-to-upload" type="file" accept=".json" bind:this={fileInput}
-           on:change={() => openFileInNewPage()}/>
+           on:change={() => openFileInNewPage(files[0])}/>
     <button class="upload-btn" on:click={ () => fileInput.click() }>Upload</button>
 </div>
 
