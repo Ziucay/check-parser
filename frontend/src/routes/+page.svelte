@@ -2,33 +2,29 @@
     import type {PageData} from "../../.svelte-kit/types/src/routes/$types";
     import {redirect} from "@sveltejs/kit";
 
-
     export let data: PageData;
 
-    let fileInput;
     let files;
-    let uploadJson;
+    $: if (files) {
+        //Currenty will test one file only. Add multiples support later
 
-    function openFileInNewPage(jsonFile) {
-        const reader = new FileReader();
-        console.log(jsonFile)
-        reader.readAsText(jsonFile)
-        reader.onload = e => {
-            uploadJson = e.target.result;
-        }
     }
 </script>
 
 <h1>Welcome to Cost Accountant!</h1>
 
-<div class="container">
-    <input class="hidden" id="file-to-upload" type="file" accept=".json" bind:this={fileInput}
-           on:change={(e) => openFileInNewPage(e[0])}/>
-    <button class="upload-btn" on:click={ () => fileInput.click() }>Upload</button>
-</div>
+<input
+        accept="application/JSON"
+        bind:files
+        id="avatar"
+        name="avatar"
+        type="file"
+/>
 
-{#if uploadJson != null}
-    <p>{uploadJson}</p>
+{#if files}
+    {#each Array.from(files) as file}
+        <p>{file.text}</p>
+    {/each}
 {/if}
 
 <style>
