@@ -11,6 +11,7 @@
 
     function openFileInNewPage(jsonFile) {
         const reader = new FileReader();
+        console.log(jsonFile)
         reader.readAsText(jsonFile)
         reader.onload = e => {
             uploadJson = e.target.result;
@@ -22,7 +23,7 @@
 
 <div class="container">
     <input class="hidden" id="file-to-upload" type="file" accept=".json" bind:this={fileInput}
-           on:change={(e) => openFileInNewPage(e)}/>
+           on:change={(e) => openFileInNewPage(e[0])}/>
     <button class="upload-btn" on:click={ () => fileInput.click() }>Upload</button>
 </div>
 
