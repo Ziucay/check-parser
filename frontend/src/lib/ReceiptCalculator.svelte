@@ -14,12 +14,14 @@
 
     //Accepts array of receipts
     export let receipt: object[];
-    console.log(receipt)
+
     //Get items from each list
     let receiptItemsArray: object[] = []
     receipt.forEach((r) => {
         receiptItemsArray.push(r.ticket.documet.receipt.items)
     });
+
+    console.log(receiptItemsArray)
 
     //Flatten the array to get simple list of items
     let items = []
