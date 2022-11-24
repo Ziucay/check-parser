@@ -1,6 +1,7 @@
 <script lang="ts">
     import type {PageData} from "../../.svelte-kit/types/src/routes/$types";
     import {redirect} from "@sveltejs/kit";
+    import ReceiptCalculator from "$lib/ReceiptCalculator.svelte";
 
     export let data: PageData;
 
@@ -13,9 +14,15 @@
             reader.readAsText(file)
 
             reader.onload = function () {
-                fileReaded = reader.result
+                if (typeof reader.result === "string") {
+                    fileReaded = JSON.parse(reader.result)
+                }
             }
         }
+    }
+
+    $: if (fileReaded) {
+
     }
 </script>
 
@@ -30,7 +37,7 @@
 />
 
 {#if fileReaded}
-    <p>{fileReaded}</p>
+    <ReceiptCalculator receipt={fileReaded} />
 {/if}
 
 <style>
