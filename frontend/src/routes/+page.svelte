@@ -5,9 +5,17 @@
     export let data: PageData;
 
     let files;
-    $: if (files) {
-        //Currenty will test one file only. Add multiples support later
+    let fileReaded;
 
+    $: if (files) {
+        const reader = new FileReader();
+        for (const file of files) {
+            reader.readAsText(file)
+
+            reader.onload = function () {
+                fileReaded = reader.result
+            }
+        }
     }
 </script>
 
@@ -21,12 +29,8 @@
         type="file"
 />
 
-{#if files}
-    {#each Array.from(files) as file}
-        {#await file.text then text}
-            <p>{text}</p>
-        {/await}
-    {/each}
+{#if fileReaded}
+    <p>{fileReaded}</p>
 {/if}
 
 <style>
