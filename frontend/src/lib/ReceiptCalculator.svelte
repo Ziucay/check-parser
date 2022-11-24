@@ -16,7 +16,7 @@
     export let receipt: object[];
 
     //Get items from each list
-    let receiptItemsArray: object[]
+    let receiptItemsArray: object[] = []
     receipt.forEach((r) => {
         receiptItemsArray.push(r.ticket.documet.receipt.items)
     });
