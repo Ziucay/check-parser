@@ -22,7 +22,7 @@
 
 <div class="container">
     <input class="hidden" id="file-to-upload" type="file" accept=".json" bind:this={fileInput}
-           on:change={() => openFileInNewPage(files[0])}/>
+           on:change={(e) => openFileInNewPage(e)}/>
     <button class="upload-btn" on:click={ () => fileInput.click() }>Upload</button>
 </div>
 
