@@ -23,7 +23,9 @@
 
 {#if files}
     {#each Array.from(files) as file}
-        <p>{file.text}</p>
+        {#await file.text then text}
+            <p>{text}</p>
+        {/await}
     {/each}
 {/if}
 
