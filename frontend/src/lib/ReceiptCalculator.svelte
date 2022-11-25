@@ -1,5 +1,4 @@
 <script lang="ts">
-    import {Telegram} from 'svelte-share-buttons-component';
 
     enum Buyer {
         Common,
@@ -114,5 +113,7 @@
 </div>
 
 <p>Sum: {owedSum / 100}</p>
-<Telegram class="share-button" text="{formatItems()} Hi, you owe me {owedSum / 100} rubles!"/>
-<input type="button" value="button name" on:click={window.open(`https://t.me/share/url?url=Receipt&text=${owedSum / 100}`)} />
+<button type="submit" style="border: 0; background: transparent;"
+        on:click={() => window.open(`https://t.me/share/url?url=Receipt&text=Hi! you owe me ${owedSum / 100}`)}>
+    <img src="/images/telegram-logo.svg" width="50" height="50" alt="right"/>
+</button>

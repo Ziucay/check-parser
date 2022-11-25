@@ -20,24 +20,20 @@
             }
         }
     }
-
-    $: if (fileReaded) {
-
-    }
 </script>
 
 <h1>Welcome to Cost Accountant!</h1>
 
-<input
-        accept="application/JSON"
-        bind:files
-        id="avatar"
-        name="avatar"
-        type="file"
+<input class="upload-btn"
+       accept="application/JSON"
+       bind:files
+       id="avatar"
+       name="avatar"
+       type="file"
 />
 
 {#if fileReaded}
-    <ReceiptCalculator receipt={fileReaded} />
+    <ReceiptCalculator receipt={fileReaded}/>
 {/if}
 
 <style>
@@ -53,10 +49,6 @@
         animation: error 0.5s ease;
         position: relative;
         font-family: "My Font Family 1";
-    }
-
-    .hidden {
-        display: none;
     }
 
     .upload-btn {
