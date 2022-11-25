@@ -115,3 +115,4 @@
 
 <p>Sum: {owedSum / 100}</p>
 <Telegram class="share-button" text="{formatItems()} Hi, you owe me {owedSum / 100} rubles!"/>
+<input type="button" value="button name" on:click={window.open(`https://t.me/share/url?url=Receipt&text=${owedSum / 100}`)} />
