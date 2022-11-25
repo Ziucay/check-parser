@@ -24,7 +24,7 @@
 
 <h1>Welcome to Cost Accountant!</h1>
 
-<input class="upload-btn"
+<input
        accept="application/JSON"
        bind:files
        id="avatar"
@@ -49,16 +49,6 @@
         animation: error 0.5s ease;
         position: relative;
         font-family: "My Font Family 1";
-    }
-
-    .upload-btn {
-        width: 128px;
-        height: 32px;
-        background-color: #1d49aa;
-        font-family: sans-serif;
-        color: white;
-        font-weight: bold;
-        border: none;
     }
 
     @keyframes error {
