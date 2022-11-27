@@ -1,6 +1,5 @@
 package com.cost.accountant.mock.rest
 
-import com.cost.accountant.models.ReceiptEntry
 import org.slf4j.LoggerFactory
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
