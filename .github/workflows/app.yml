@@ -1,0 +1,21 @@
+name: app
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: KengoTODA/actions-setup-docker-compose@main
+          with:
+            version: '2.14.2'
+      - name: Build the stack
+      run: docker-compose up -d
