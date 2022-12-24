@@ -15,7 +15,22 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: KengoTODA/actions-setup-docker-compose@main
-          with:
-            version: '2.14.2'
+        with:
+          version: '2.14.2'
       - name: Build the stack
-      run: docker-compose up -d
+        run: docker-compose up -d
+
+  check_front:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install and prepare
+        run: |
+          npm install
+          npm run prepare
+      - name: Prettier and ESLint checks
+        run: |
+          npm run lint
+      - name: Build
+        run: |
+          npm run build

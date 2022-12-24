@@ -14,6 +14,7 @@ nvm install node
 
 ```bash
 npm install
+npm run prepare
 
 npm run dev
 
