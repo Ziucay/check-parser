@@ -29,7 +29,7 @@ const login: Action = async ({ cookies, request }) => {
 		})
 	});
 
-	let retrievedText = await retrievedPass.text();
+	const retrievedText = await retrievedPass.text();
 
 	if (retrievedText === 'error') {
 		return invalid(400, { credentials: true });

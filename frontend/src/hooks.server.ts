@@ -18,7 +18,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 		body: session
 	});
 
-	let authResult = await authenticationRequest.json();
+	const authResult = await authenticationRequest.json();
 
 	// if `user` exists set `events.local`
 	if (authResult.username != 'error') {
