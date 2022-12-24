@@ -6,14 +6,15 @@
 
 ```bash
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-source ~/.bashrc  
-nvm install node 
+source ~/.bashrc
+nvm install node
 ```
 
 ## Developing
 
 ```bash
 npm install
+npm run prepare
 
 npm run dev
 
@@ -31,8 +32,6 @@ npm run build
 node build/index.js
 ```
 
-
-
 ## Docker
 
 To build:
@@ -46,9 +45,6 @@ To run:
 ```bash
 docker run -d -p 3000:3000 --rm --name cost-accountant-front cost-accountant-front
 ```
-
-
-
 
 ## Troubleshooting
 

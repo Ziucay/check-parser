@@ -1,16 +1,13 @@
 package com.cost.accountant.authorization.rest
 
-import org.slf4j.LoggerFactory
-import org.springframework.security.crypto.password.AbstractPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class LoginController(val passwordEncoder: PasswordEncoder) {
-
-    companion object {
-        val logger = LoggerFactory.getLogger(LoginController::class.java)
-    }
 
     var authToken = "token"
 
@@ -21,13 +18,10 @@ class LoginController(val passwordEncoder: PasswordEncoder) {
             password = passwordEncoder.encode("password")
         )
 
-        if (loginInfo.username == requestLoginInfo.username)
-        {
-            return loginInfo.password
-        }
-        else
-        {
-            return "error"
+        return if (loginInfo.username == requestLoginInfo.username) {
+            loginInfo.password
+        } else {
+            "error"
         }
     }
 
@@ -45,16 +39,15 @@ class LoginController(val passwordEncoder: PasswordEncoder) {
     @PostMapping("/authenticate")
     @ResponseBody
     fun authenticate(@RequestBody token: String): LoginInfo {
-        if (token == authToken)
-            return LoginInfo(
+        return if (token == authToken)
+            LoginInfo(
                 username = "user",
                 password = passwordEncoder.encode("password")
             )
         else
-            return LoginInfo(
+            LoginInfo(
                 username = "error",
                 password = "error"
             )
     }
-
 }
