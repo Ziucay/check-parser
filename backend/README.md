@@ -2,21 +2,25 @@
 
 This is server side of the project.
 
-Currently, there is only simple mock server
+## Overview
 
-## Docker
+On the backend we have:
+- authorization module
+- mock module
+- PostgreSQL database
+- liquibase client
+- adminer for database
 
-To build:
+## Developing
+
+Use 
 
 ```bash
-docker build -t cost-accountant-back .
-```
-To run:
-
-```bash
-docker run -d -p 8080:8080 --rm --name cost-accountant-back cost-accountant-back
+./gradlew :mock:run
+./gradlew :authorization:run
 ```
 
+to run applications without docker
 
 ## Troubleshooting
 
