@@ -248,7 +248,8 @@ class ReceiptsMockController {
         if (id !in 1..3)
             return "error"
         when (id) {
-            1 -> return """[{
+            1 ->
+                return """[{
                 "_id": "6378f1e80f8402fef5349d7b",
                 "createdAt": "2022-11-19T15:10:32+00:00",
                 "ticket": {
@@ -343,7 +344,8 @@ class ReceiptsMockController {
                   }
                 }
               }]"""
-            2 -> return """[{
+            2 ->
+                return """[{
     "_id": "6378f1593d0e75074b7b708e",
     "createdAt": "2022-11-19T15:08:09+00:00",
     "ticket": {
@@ -405,7 +407,8 @@ class ReceiptsMockController {
       }
     }
   }]"""
-            else -> return """[{
+            else ->
+                return """[{
 "_id": "6378f1ce0f8402fef5349d79",
 "createdAt": "2022-11-19T15:10:06+00:00",
 "ticket": {
@@ -470,5 +473,4 @@ class ReceiptsMockController {
 }]"""
         }
     }
-
 }

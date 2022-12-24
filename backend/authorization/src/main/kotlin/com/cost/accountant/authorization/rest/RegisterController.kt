@@ -1,7 +1,6 @@
 package com.cost.accountant.authorization.rest
 
 import org.slf4j.LoggerFactory
-import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -14,14 +13,10 @@ class RegisterController {
     }
 
     @PostMapping("/register")
-    fun register(@RequestBody body: RegistrationInfo): String
-    {
-        if (body.username != "user")
-        {
+    fun register(@RequestBody body: RegistrationInfo): String {
+        if (body.username != "user") {
             return "ok"
-        }
-        else
-        {
+        } else {
             return "error"
         }
     }
@@ -30,5 +25,4 @@ class RegisterController {
         val username: String,
         val password: String
     )
-
 }
