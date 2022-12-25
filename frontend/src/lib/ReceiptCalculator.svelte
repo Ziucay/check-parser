@@ -118,7 +118,7 @@
 	{/each}
 </div>
 
-<p>Sum: {owedSum / 100}</p>
+<p id="sum">Sum: {owedSum / 100}</p>
 <button
 	type="submit"
 	style="border: 0; background: transparent;"

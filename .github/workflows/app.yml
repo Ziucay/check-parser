@@ -2,7 +2,7 @@ name: app
 
 on:
   pull_request:
-    types: [ synchronize ]
+    types: [ opened, synchronize ]
   push:
     branches:
       - main
@@ -33,6 +33,10 @@ jobs:
         working-directory: ./frontend
         run: |
           npm run lint
+      - name: Run tests
+        working-directory: ./frontend
+        run: |
+          npm run test
       - name: Build
         working-directory: ./frontend
         run: |
