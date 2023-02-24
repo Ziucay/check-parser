@@ -2,6 +2,8 @@ from fastapi import FastAPI
 import json
 from pydantic import BaseModel
 
+app = FastAPI()
+
 
 class LoginInfo(BaseModel):
     username: str
@@ -17,35 +19,27 @@ class RegistrationInfo(BaseModel):
     password: str
 
 
-app = FastAPI()
-
-
 @app.get("/mock/receipts/list")
-def get_all_receipts():
-    try:
-        with open('/mock-files/mock-receipts-list.json') as file:
-            data = json.load(file)
-            print('data loaded')
-            return data
-    except:
-        print('Error occured')
-        return 'error'
+async def get_all_receipts():
+    with open('/mock-files/mock-receipts-list.json', encoding='utf-8') as file:
+        data = json.load(file)
+        return data
 
 
 @app.get("/mock/receipt")
-def get_receipt_by_id(id: int = 1):
-    with open('/mock-files/mock-receipt.json') as file:
-        if id not in [1, 2, 3]:
+async def get_receipt_by_id(receipt_id: int = 1):
+    with open('/mock-files/mock-receipt.json', encoding='utf-8') as file:
+        if receipt_id not in [1, 2, 3]:
             return 'error'
         data = json.load(file)
-        return data[id]
+        return data[receipt_id]
 
 
-authToken = "token"
+auth_token = "token"
 
 
 @app.post('/login')
-def try_login(request_login_info: LoginInfo):
+async def try_login(request_login_info: LoginInfo):
     login_info = LoginInfo('user', 'password')
     if login_info.username == request_login_info.username:
         return login_info.password
@@ -54,21 +48,21 @@ def try_login(request_login_info: LoginInfo):
 
 
 @app.post('/updateToken')
-def update_token(token: Token):
-    authToken = token.value
+async def update_token(token: Token):
+    auth_token = token.value
     return 'ok'
 
 
 @app.post('/authenticate')
-def authenticate(token: Token):
-    if token.value == authToken:
+async def authenticate(token: Token):
+    if token.value == auth_token:
         return LoginInfo('user', 'password')
     else:
         return LoginInfo('error', 'error')
 
 
 @app.post('/register')
-def authenticate(registration_info: RegistrationInfo):
+async def authenticate(registration_info: RegistrationInfo):
     if registration_info.username != 'user':
         return 'ok'
     else:
