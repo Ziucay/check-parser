@@ -22,9 +22,14 @@ app = FastAPI()
 
 @app.get("/mock/receipts/list")
 def get_all_receipts():
-    with open('/mock-files/mock-receipts-list.json') as file:
-        data = json.load(file)
-        return data
+    try:
+        with open('/mock-files/mock-receipts-list.json') as file:
+            data = json.load(file)
+            print('data loaded')
+            return data
+    except:
+        print('Error occured')
+        return 'error'
 
 
 @app.get("/mock/receipt")
