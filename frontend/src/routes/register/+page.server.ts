@@ -24,7 +24,7 @@ const register: Action = async ({ request }) => {
 		return invalid(400, { invalid: true });
 	}
 
-	const res = await fetch('http://auth:8090/register', {
+	const res = await fetch('http://auth:8080/register', {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',
