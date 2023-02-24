@@ -21,14 +21,14 @@ class RegistrationInfo(BaseModel):
 
 @app.get("/mock/receipts/list")
 async def get_all_receipts():
-    with open('/mock-files/mock-receipts-list.json', encoding='utf-8') as file:
+    with open('./mock-files/mock-receipts-list.json', encoding='utf-8') as file:
         data = json.load(file)
         return data
 
 
 @app.get("/mock/receipt")
 async def get_receipt_by_id(receipt_id: int = 1):
-    with open('/mock-files/mock-receipt.json', encoding='utf-8') as file:
+    with open('./mock-files/mock-receipt.json', encoding='utf-8') as file:
         if receipt_id not in [1, 2, 3]:
             return 'error'
         data = json.load(file)
