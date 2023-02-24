@@ -21,13 +21,9 @@ class RegistrationInfo(BaseModel):
 
 @app.get("/mock/receipts/list")
 async def get_all_receipts():
-    try:
-        with open('./mock-files/mock-receipts-list.json', encoding='utf-8') as file:
-            data = json.load(file)
-            return data
-    except:
-        print('Some error')
-
+    with open('./mock-files/mock-receipts-list.json', encoding='utf-8') as file:
+        data = json.load(file)
+        return data
 
 
 @app.get("/mock/receipt")
