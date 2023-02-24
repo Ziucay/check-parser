@@ -7,7 +7,7 @@ app = FastAPI()
 
 class LoginInfo(BaseModel):
     username: str
-    password: int
+    password: str
 
 
 class Token(BaseModel):
