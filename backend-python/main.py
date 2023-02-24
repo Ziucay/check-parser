@@ -40,7 +40,7 @@ auth_token = "token"
 
 @app.post('/login')
 async def try_login(request_login_info: LoginInfo):
-    login_info = LoginInfo('user', 'password')
+    login_info = LoginInfo(**{'username': 'user', 'password': 'password'})
     if login_info.username == request_login_info.username:
         return login_info.password
     else:
