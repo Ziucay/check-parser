@@ -3,7 +3,7 @@ import json
 from pydantic import BaseModel
 
 app = FastAPI()
-
+#TODO: add encryption
 
 class LoginInfo(BaseModel):
     username: str
