@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { PageData } from '../../.svelte-kit/types/src/routes/$types';
-	import { redirect } from '@sveltejs/kit';
 	import ReceiptCalculator from '$lib/ReceiptCalculator.svelte';
 
 	export let data: PageData;
@@ -31,20 +30,6 @@
 {/if}
 
 <style>
-	p {
-		color: black;
-	}
-
-	p1 {
-		font-family: 'My Custom Font';
-	}
-
-	p2 {
-		animation: error 0.5s ease;
-		position: relative;
-		font-family: 'My Font Family 1';
-	}
-
 	@keyframes error {
 		0% {
 			left: 0px;
