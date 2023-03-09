@@ -6,3 +6,4 @@ pytest==7.2.0
 httpx>=0.23.0
 prometheus-fastapi-instrumentator>=5.9.1
 fastapi-health>=0.4.0
+bcrypt>=4.0.1
