@@ -2,6 +2,7 @@ from fastapi import FastAPI
 import json
 from pydantic import BaseModel
 import bcrypt
+from fastapi.responses import PlainTextResponse
 
 app = FastAPI()
 #TODO: add encryption
@@ -39,7 +40,7 @@ async def get_receipt_by_id(receipt_id: int = 1):
 auth_token = "token"
 
 
-@app.post('/login')
+@app.post('/login', response_class=PlainTextResponse)
 async def try_login(request_login_info: LoginInfo):
     login_info = LoginInfo(**{'username': 'user', 'password': bcrypt.hashpw(b'password', bcrypt.gensalt())})
     if login_info.username == request_login_info.username:
@@ -48,7 +49,7 @@ async def try_login(request_login_info: LoginInfo):
         return 'error'
 
 
-@app.post('/updateToken')
+@app.post('/updateToken', response_class=PlainTextResponse)
 async def update_token(token: Token):
     auth_token = token.value
     return 'ok'
@@ -62,7 +63,7 @@ async def authenticate(token: Token):
         return LoginInfo('error', 'error')
 
 
-@app.post('/register')
+@app.post('/register', response_class=PlainTextResponse)
 async def authenticate(registration_info: RegistrationInfo):
     if registration_info.username != 'user':
         return 'ok'
