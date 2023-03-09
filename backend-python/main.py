@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import json
 from pydantic import BaseModel
+import bcrypt
 
 app = FastAPI()
 #TODO: add encryption
@@ -40,7 +41,7 @@ auth_token = "token"
 
 @app.post('/login')
 async def try_login(request_login_info: LoginInfo):
-    login_info = LoginInfo(**{'username': 'user', 'password': 'password'})
+    login_info = LoginInfo(**{'username': 'user', 'password': bcrypt.hashpw(b'password', bcrypt.gensalt())})
     if login_info.username == request_login_info.username:
         return login_info.password
     else:
