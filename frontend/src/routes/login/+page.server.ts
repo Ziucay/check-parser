@@ -21,7 +21,7 @@ const login: Action = async ({ cookies, request }) => {
 		method: 'POST',
 		headers: {
 			Accept: 'plain/text',
-			Content-Type: 'application/json'
+			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify({
 			username: username,
