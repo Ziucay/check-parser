@@ -9,7 +9,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 		return await resolve(event);
 	}
 
-	const authenticationRequest = await fetch('http://auth:8090/authenticate', {
+	const authenticationRequest = await fetch('http://back:8080/authenticate', {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',

@@ -17,11 +17,11 @@ const login: Action = async ({ cookies, request }) => {
 		return invalid(400, { invalid: true });
 	}
 
-	const retrievedPass = await fetch('http://auth:8090/login', {
+	const retrievedPass = await fetch('http://back:8080/login', {
 		method: 'POST',
 		headers: {
-			Accept: 'application/json',
-			'Content-Type': 'application/json'
+			Accept: 'plain/text',
+			'Content-Type': 'application/json;charset=utf-8'
 		},
 		body: JSON.stringify({
 			username: username,
@@ -43,7 +43,7 @@ const login: Action = async ({ cookies, request }) => {
 
 	const authToken = crypto.randomUUID();
 
-	const updateToken = await fetch('http://auth:8090/updateToken', {
+	await fetch('http://back:8080/updateToken', {
 		method: 'POST',
 		headers: {
 			Accept: 'text/plain',

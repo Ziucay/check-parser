@@ -1,13 +1,5 @@
 import { invalid, redirect } from '@sveltejs/kit';
 import type { Action, Actions, PageServerLoad } from './$types';
-import bcrypt from 'bcrypt';
-
-// using an enum for user roles to avoid typos
-// if you're not using TypeScript use an object
-enum Roles {
-	ADMIN = 'ADMIN',
-	USER = 'USER'
-}
 
 export const load: PageServerLoad = async ({ locals }) => {
 	if (locals.user) {
@@ -24,7 +16,7 @@ const register: Action = async ({ request }) => {
 		return invalid(400, { invalid: true });
 	}
 
-	const res = await fetch('http://auth:8090/register', {
+	const res = await fetch('http://back:8080/register', {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',

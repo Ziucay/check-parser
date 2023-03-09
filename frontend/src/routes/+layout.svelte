@@ -17,7 +17,7 @@
 		{#if $page.data.user}
 			<a href="/data">List receipts</a>
 
-			<form action="/logout" method="POST">
+			<form action="/logout">
 				<button type="submit">Log out</button>
 			</form>
 		{/if}

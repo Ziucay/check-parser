@@ -36,24 +36,6 @@
 	let rightColor = '#90A955';
 	items.forEach(() => buyers.push(Buyer.Common));
 
-	function formatItems(): string {
-		let result = '';
-		for (let i = 0; i < items.length; i++) {
-			result += `${items[i].name} `;
-			result += `${items[i].quantity} `;
-			result += `${items[i].sum / 100} `;
-
-			if (buyers[i] === Buyer.Common) {
-				result += 'split\n';
-			} else if (buyers[i] === Buyer.Right) {
-				result += 'yours\n';
-			} else {
-				result += 'mine\n';
-			}
-		}
-		return result;
-	}
-
 	function calculate() {
 		let sum = 0;
 		for (let i = 0; i < items.length; i++) {
