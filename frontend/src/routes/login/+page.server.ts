@@ -20,8 +20,7 @@ const login: Action = async ({ cookies, request }) => {
 	const retrievedPass = await fetch('http://back:8080/login', {
 		method: 'POST',
 		headers: {
-			Accept: 'plain/text',
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json;charset=utf-8'
 		},
 		body: JSON.stringify({
 			username: username,
