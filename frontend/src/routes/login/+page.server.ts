@@ -34,7 +34,7 @@ const login: Action = async ({ cookies, request }) => {
 	if (retrievedText === 'error') {
 		return invalid(400, { credentials: true });
 	}
-    
+
 	const userPasswordEqual = await bcrypt.compare(password, retrievedText);
 
 	if (!userPasswordEqual) {
