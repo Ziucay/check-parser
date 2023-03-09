@@ -1,13 +1,5 @@
 import { invalid, redirect } from '@sveltejs/kit';
 import type { Action, Actions, PageServerLoad } from './$types';
-import bcrypt from 'bcrypt';
-
-// using an enum for user roles to avoid typos
-// if you're not using TypeScript use an object
-enum Roles {
-	ADMIN = 'ADMIN',
-	USER = 'USER'
-}
 
 export const load: PageServerLoad = async ({ locals }) => {
 	if (locals.user) {

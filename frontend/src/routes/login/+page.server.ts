@@ -43,7 +43,7 @@ const login: Action = async ({ cookies, request }) => {
 
 	const authToken = crypto.randomUUID();
 
-	const updateToken = await fetch('http://back:8080/updateToken', {
+	await fetch('http://back:8080/updateToken', {
 		method: 'POST',
 		headers: {
 			Accept: 'text/plain',

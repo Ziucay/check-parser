@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 
-import { render, fireEvent, screen } from '@testing-library/svelte';
+import { render } from '@testing-library/svelte';
 
 import ReceiptCalculator from '../src/lib/ReceiptCalculator.svelte';
 
